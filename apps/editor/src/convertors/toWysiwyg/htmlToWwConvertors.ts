@@ -15,6 +15,9 @@ export function getTextWithoutTrailingNewline(text: string) {
 
 export function isCustomHTMLInlineNode({ schema }: ToWwConvertorState, node: MdNode) {
   const html = node.literal!;
+  if(!html){
+    return false;
+  }
   const matched = html.match(reHTMLTag);
 
   if (matched) {
